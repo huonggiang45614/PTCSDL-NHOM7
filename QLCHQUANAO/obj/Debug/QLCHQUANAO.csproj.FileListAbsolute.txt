@@ -1,0 +1,10 @@
+D:\Minh\QLCHQUANAO\bin\Debug\QLCHQUANAO.exe.config
+D:\Minh\QLCHQUANAO\bin\Debug\QLCHQUANAO.exe
+D:\Minh\QLCHQUANAO\bin\Debug\QLCHQUANAO.pdb
+D:\Minh\QLCHQUANAO\obj\Debug\QLCHQUANAO.csproj.AssemblyReference.cache
+D:\Minh\QLCHQUANAO\obj\Debug\QLCHQUANAO.FrmQuanLyKhachHang.resources
+D:\Minh\QLCHQUANAO\obj\Debug\QLCHQUANAO.Properties.Resources.resources
+D:\Minh\QLCHQUANAO\obj\Debug\QLCHQUANAO.csproj.GenerateResource.cache
+D:\Minh\QLCHQUANAO\obj\Debug\QLCHQUANAO.csproj.CoreCompileInputs.cache
+D:\Minh\QLCHQUANAO\obj\Debug\QLCHQUANAO.exe
+D:\Minh\QLCHQUANAO\obj\Debug\QLCHQUANAO.pdb
