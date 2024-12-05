@@ -63,6 +63,16 @@ namespace WindowsFormsApp3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap background {
+            get {
+                object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bo_anh_icon_ngoi_nha_vector_pho_bien {
             get {
                 object obj = ResourceManager.GetObject("Bo-anh-icon-ngoi-nha-vector-pho-bien", resourceCulture);

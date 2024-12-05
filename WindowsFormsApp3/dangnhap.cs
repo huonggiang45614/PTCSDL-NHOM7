@@ -12,32 +12,30 @@ namespace WindowsFormsApp3
 {
     public partial class dangnhap : Form
     {
-
-        private string username = "admin";
-        private string password = "admin";
-
         public dangnhap()
         {
             InitializeComponent();
             this.BackColor = Color.FromArgb(135, 206, 235);
+            txttentaikhoan.Text = "admin";
+            txtmatkhau.Text = "admin";
         }
 
         private void btdangnhap_Click(object sender, EventArgs e)
         {
-            DataTable dt = Database.Query("select * from TAIKHOAN where TENTAIKHOAN=@TENTAIKHOAN", new Dictionary<string, object>()
+            if (!check()) return;
+            var pa = new Dictionary<string, object>();
+            pa.Add("TENTAIKHOAN", txttentaikhoan.Text);
+            DataTable dt = Database.Query("select * from TAIKHOAN where TENTAIKHOAN=@TENTAIKHOAN", pa);
+            if (dt.Rows.Count == 0 || !dt.Rows[0]["MATKHAU"].ToString().Equals(txtmatkhau.Text))
             {
-                {"TENTAIKHOAN", txttentaikhoan.Text}
-            });
-            if(txttentaikhoan.Text.Equals(username) && txtmatkhau.Text.Equals(password))
-            {
-                trangchu f=new trangchu();
-                this.Hide();
-                f.ShowDialog();
-                this.Show();
+                MessageBox.Show("Sai mật khẩu hoặc tài khoản!");
             }
             else
             {
-                MessageBox.Show("Sai mật khẩu hoặc tài khoản!");
+                trangchu f = new trangchu();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
             }
         }
 
@@ -48,20 +46,41 @@ namespace WindowsFormsApp3
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show(" Bạn thật sự muốn thoát chương trình ?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK) 
+            if (MessageBox.Show(" Bạn thật sự muốn thoát chương trình ?", "Thông báo", MessageBoxButtons.OKCancel) !=
+                System.Windows.Forms.DialogResult.OK)
             {
                 e.Cancel = true;
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private bool check()
         {
+            errorProvider1.Clear();
+            txtmatkhau.Text = txtmatkhau.Text.Trim();
+            txttentaikhoan.Text = txttentaikhoan.Text.Trim();
+            if (txttentaikhoan.TextLength == 0)
+            {
+                errorProvider1.SetError(txttentaikhoan, "Hãy nhập tên tài khoản.");
+                return false;
+            }
 
+            if (txtmatkhau.TextLength == 0)
+            {
+                errorProvider1.SetError(txtmatkhau, "Hãy nhập mật khẩu.");
+                return false;
+            }
+
+            return true;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void txtmatkhau_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                btdangnhap_Click(sender, EventArgs.Empty);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

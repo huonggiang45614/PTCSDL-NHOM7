@@ -11,7 +11,7 @@ namespace WindowsFormsApp3
 {
     internal class Database
     {
-        private static SqlConnection connection = new SqlConnection(@"Data Source=HG22102004\SQLEXPRESS01;Initial Catalog=QLCHQA;Integrated Security=True");
+        private static SqlConnection connection = new SqlConnection(@"Data Source=.;Initial Catalog=QLCHQA;Integrated Security=True");
 
         public static void Execute(String sql, Dictionary<string, object> parameter = null)
         {

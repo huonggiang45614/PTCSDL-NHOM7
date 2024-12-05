@@ -24,12 +24,10 @@ namespace WindowsFormsApp3
 
         private void hoadon_Load(object sender, EventArgs e)
         {
-            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn();
             deleteColumn.HeaderText = "Xóa";
             deleteColumn.Name = "DeleteColumn";
@@ -40,6 +38,7 @@ namespace WindowsFormsApp3
                 dataGridView1.Columns.Add(deleteColumn);
             }
         }
+
         public void ConfigureDataGridView()
         {
             DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn();
@@ -52,6 +51,7 @@ namespace WindowsFormsApp3
                 dataGridView1.Columns.Add(deleteColumn);
             }
         }
+
         public void LoadProductsIntoComboBox()
         {
             comboBox1.DataSource = null;
@@ -62,6 +62,7 @@ namespace WindowsFormsApp3
             comboBox1.DisplayMember = "TENMATHANG";
             comboBox1.SelectedIndex = -1;
         }
+
         public void LoadStaffIntoComboBox()
         {
             comboBox2.DataSource = null;
@@ -71,9 +72,8 @@ namespace WindowsFormsApp3
             comboBox2.DisplayMember = "TENNHANVIEN";
             comboBox2.SelectedIndex = -1;
         }
-       
 
-    
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             tbx_PRICE.Clear();
@@ -83,154 +83,155 @@ namespace WindowsFormsApp3
             tbx_PRICE.Text = selectedProductPrice.ToString();
         }
 
-private void UpdateTotalPrice()
-{
-    double total = 0;
-    foreach (DataGridViewRow row in dataGridView1.Rows)
-    {
-        if (row.IsNewRow) break;
-        total += Double.Parse(row.Cells[4].Value.ToString());
-    }
-    tbx_TOTAL.Text = total.ToString();
-}
-private void btn_ADD_Click(object sender, EventArgs e)
+        private void UpdateTotalPrice()
         {
-    if (comboBox1.SelectedItem == null)
-    {
-        MessageBox.Show("Vui lòng chọn sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        return;
-    }
+            double total = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) break;
+                total += Double.Parse(row.Cells[4].Value.ToString());
+            }
 
-    if (nud_QUANTITY.Value == 0)
-    {
-        MessageBox.Show("Vui lòng chọn số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        return;
-    }
+            tbx_TOTAL.Text = total.ToString();
+        }
 
-    try
-    {
-        DataRowView selectedProduct = comboBox1.SelectedItem as DataRowView;
-        string productID = selectedProduct["IDMATHANG"].ToString();
-        string productName = selectedProduct["TENMATHANG"].ToString();
-        string productQuantity = nud_QUANTITY.Value.ToString();
-        string productPrice = selectedProduct["GIA"].ToString();
-        double Total = (double)nud_QUANTITY.Value * (double)selectedProduct["GIA"];
-        dataGridView1.Rows.Add(productID, productName, productQuantity, productPrice, Total);
-        ConfigureDataGridView();
-        UpdateTotalPrice();
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("Lỗi: " + ex.Message);
-    }
-}
+        private void btn_ADD_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (nud_QUANTITY.Value == 0)
+            {
+                MessageBox.Show("Vui lòng chọn số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                DataRowView selectedProduct = comboBox1.SelectedItem as DataRowView;
+                string productID = selectedProduct["IDMATHANG"].ToString();
+                string productName = selectedProduct["TENMATHANG"].ToString();
+                string productQuantity = nud_QUANTITY.Value.ToString();
+                string productPrice = selectedProduct["GIA"].ToString();
+                double Total = (double)nud_QUANTITY.Value * (double)selectedProduct["GIA"];
+                dataGridView1.Rows.Add(productID, productName, productQuantity, productPrice, Total);
+                ConfigureDataGridView();
+                UpdateTotalPrice();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-    if (e.ColumnIndex == dataGridView1.Columns["DeleteColumn"].Index && e.RowIndex >= 0)
-    {
-        try
-        {
-            dataGridView1.Rows.RemoveAt(e.RowIndex);
-            UpdateTotalPrice();
+            if (e.ColumnIndex == dataGridView1.Columns["DeleteColumn"].Index && e.RowIndex >= 0)
+            {
+                try
+                {
+                    dataGridView1.Rows.RemoveAt(e.RowIndex);
+                    UpdateTotalPrice();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
-        catch (Exception ex)
+
+        private bool Check()
         {
-            MessageBox.Show("Lỗi khi xóa: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            errorProvider1.Clear();
+            tbx_CUSTOMER_NAME.Text = tbx_CUSTOMER_NAME.Text.Trim();
+            tbx_CUSTOMER_ADDRESS.Text = tbx_CUSTOMER_ADDRESS.Text.Trim();
+            tbx_CUSTOMER_NUMBER.Text = tbx_CUSTOMER_NUMBER.Text.Trim();
+            if (tbx_CUSTOMER_NAME.TextLength == 0)
+            {
+                errorProvider1.SetError(tbx_CUSTOMER_NAME, "Tên không được để trống");
+                return false;
+            }
+
+            if (tbx_CUSTOMER_ADDRESS.TextLength == 0)
+            {
+                errorProvider1.SetError(tbx_CUSTOMER_ADDRESS, "Địa chỉ không được để trống");
+                return false;
+            }
+
+            if (tbx_CUSTOMER_NUMBER.TextLength != 10 || !tbx_CUSTOMER_NUMBER.Text.All(Char.IsDigit) ||
+                !tbx_CUSTOMER_NUMBER.Text.StartsWith("0"))
+            {
+                errorProvider1.SetError(tbx_CUSTOMER_NUMBER, "Số điện thoại không hợp lệ");
+                return false;
+            }
+
+            if (comboBox2.Text == "")
+            {
+                errorProvider1.SetError(comboBox2, "Chưa có nhân viên phụ trách");
+                return false;
+            }
+
+            if (tbx_TOTAL.TextLength == 0)
+            {
+                errorProvider1.SetError(tbx_TOTAL, "Chưa có sản phẩm nào được chọn");
+                return false;
+            }
+
+            return true;
         }
-    }
-}
-private bool Check()
-{
-    errorProvider1.Clear();
-    tbx_CUSTOMER_NAME.Text = tbx_CUSTOMER_NAME.Text.Trim();
-    tbx_CUSTOMER_ADDRESS.Text = tbx_CUSTOMER_ADDRESS.Text.Trim();
-    tbx_CUSTOMER_NUMBER.Text = tbx_CUSTOMER_NUMBER.Text.Trim();
-    if (tbx_CUSTOMER_NAME.TextLength == 0)
-    {
-        errorProvider1.SetError(tbx_CUSTOMER_NAME, "Tên không được để trống");
-        return false;
-    }
-
-    if (tbx_CUSTOMER_ADDRESS.TextLength == 0)
-    {
-        errorProvider1.SetError(tbx_CUSTOMER_ADDRESS, "Địa chỉ không được để trống");
-        return false;
-    }
-
-    if (tbx_CUSTOMER_NUMBER.TextLength != 10 || !tbx_CUSTOMER_NUMBER.Text.All(Char.IsDigit) ||
-        !tbx_CUSTOMER_NUMBER.Text.StartsWith("0"))
-    {
-        errorProvider1.SetError(tbx_CUSTOMER_NUMBER, "Số điện thoại không hợp lệ");
-        return false;
-    }
-
-    if (comboBox2.Text == "")
-    {
-        errorProvider1.SetError(comboBox2, "Chưa có nhân viên phụ trách");
-        return false;
-    }
-
-    if (tbx_TOTAL.TextLength == 0)
-    {
-        errorProvider1.SetError(tbx_TOTAL, "Chưa có sản phẩm nào được chọn");
-        return false;
-    }
-
-    return true;
-}
 
 
-private void btn_CONFIRM_Click(object sender, EventArgs e)
+        private void btn_CONFIRM_Click(object sender, EventArgs e)
         {
-    if (!Check())
-    {
-        return;
-    }
+            if (!Check())
+            {
+                return;
+            }
 
-    CustomerName = tbx_CUSTOMER_NAME.Text;
-    CustomerNumber = tbx_CUSTOMER_NUMBER.Text;
-    CustomerAddress = tbx_CUSTOMER_ADDRESS.Text;
-    StaffName = comboBox2.Text;
-    Date = tbx_DATE.Text;
-    Total = tbx_TOTAL.Text;
-    Clear();
-}
+            CustomerName = tbx_CUSTOMER_NAME.Text;
+            CustomerNumber = tbx_CUSTOMER_NUMBER.Text;
+            CustomerAddress = tbx_CUSTOMER_ADDRESS.Text;
+            StaffName = comboBox2.Text;
+            Date = tbx_DATE.Text;
+            Total = tbx_TOTAL.Text;
+            Clear();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Clear();
         }
+
         public void Clear()
         {
-    tbx_CUSTOMER_ADDRESS.Text = string.Empty;
-    tbx_CUSTOMER_NAME.Text = string.Empty;
-    tbx_CUSTOMER_NUMBER.Text = string.Empty;
-    tbx_PRICE.Text = string.Empty;
-    tbx_TOTAL.Text = string.Empty;
-    nud_QUANTITY.Value = 0;
-    comboBox1.SelectedIndex = -1;
-    comboBox2.SelectedIndex = -1;
-    dataGridView1.Rows.Clear();
-    if (dataGridView1.Columns.Contains("DeleteColumn"))
-    {
-        dataGridView1.Columns.Remove("DeleteColumn");
-    }
+            tbx_CUSTOMER_ADDRESS.Text = string.Empty;
+            tbx_CUSTOMER_NAME.Text = string.Empty;
+            tbx_CUSTOMER_NUMBER.Text = string.Empty;
+            tbx_PRICE.Text = string.Empty;
+            tbx_TOTAL.Text = string.Empty;
+            nud_QUANTITY.Value = 0;
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
+            dataGridView1.Rows.Clear();
+            if (dataGridView1.Columns.Contains("DeleteColumn"))
+            {
+                dataGridView1.Columns.Remove("DeleteColumn");
+            }
+        }
 
-}
-
-public static string CustomerName;
-public static string CustomerNumber;
-public static string CustomerAddress;
-public static string StaffName;
-public static string Date;
-public static string Total;
+        public static string CustomerName;
+        public static string CustomerNumber;
+        public static string CustomerAddress;
+        public static string StaffName;
+        public static string Date;
+        public static string Total;
 
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
             tbx_PRICE.Clear();
         }
     }
-
 }
-
