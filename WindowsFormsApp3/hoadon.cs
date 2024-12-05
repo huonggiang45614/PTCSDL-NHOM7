@@ -16,15 +16,15 @@ namespace WindowsFormsApp3
         public hoadon()
         {
             InitializeComponent();
-        }
-
-        private void hoadon_Load(object sender, EventArgs e)
-        {
-            InitializeComponent();
             LoadProductsIntoComboBox();
             LoadStaffIntoComboBox();
             DateTime today = DateTime.Today;
             tbx_DATE.Text = today.ToString("dd/MM/yyyy");
+        }
+
+        private void hoadon_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -60,6 +60,7 @@ namespace WindowsFormsApp3
             comboBox1.DataSource = productTable;
             comboBox1.ValueMember = "IDMATHANG";
             comboBox1.DisplayMember = "TENMATHANG";
+            comboBox1.SelectedIndex = -1;
         }
         public void LoadStaffIntoComboBox()
         {
@@ -68,24 +69,14 @@ namespace WindowsFormsApp3
             comboBox2.DataSource = staffTable;
             comboBox2.ValueMember = "IDNHANVIEN";
             comboBox2.DisplayMember = "TENNHANVIEN";
+            comboBox2.SelectedIndex = -1;
         }
-        public class ProductItem
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-
-            public double Price { get; set; }
-
-            public override string ToString()
-            {
-                return Name;
-            }
-        }
+       
 
     
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            tbx_PRICE.Clear();
             DataRowView item = comboBox1.SelectedItem as DataRowView;
             if (item == null) return;
             double selectedProductPrice = (double)item["GIA"];
@@ -203,7 +194,6 @@ private void btn_CONFIRM_Click(object sender, EventArgs e)
     StaffName = comboBox2.Text;
     Date = tbx_DATE.Text;
     Total = tbx_TOTAL.Text;
-    form2.ShowDialog();
     Clear();
 }
 
@@ -235,7 +225,11 @@ public static string CustomerAddress;
 public static string StaffName;
 public static string Date;
 public static string Total;
-public hoadon form2 = new hoadon();
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            tbx_PRICE.Clear();
+        }
     }
 
 }

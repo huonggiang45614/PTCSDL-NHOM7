@@ -73,9 +73,90 @@ namespace WindowsFormsApp3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap istockphoto_1258065863_170667a {
+            get {
+                object obj = ResourceManager.GetObject("istockphoto-1258065863-170667a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_clipart_exclamation_mark_question_mark_computer_icons_symbol_attention_miscellaneous_city {
+            get {
+                object obj = ResourceManager.GetObject("png-clipart-exclamation-mark-question-mark-computer-icons-symbol-attention-miscel" +
+                        "laneous-city", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_black_shopping_cart_icon_png_image_5108611 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-black-shopping-cart-icon-png-image_5108611", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_black_shopping_cart_icon_png_image_51086111 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-black-shopping-cart-icon-png-image_51086111", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_settings_icon_png_image_4491632 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-settings-icon-png-image_4491632", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pngtree_vector_star_icon_png_image_516104 {
             get {
                 object obj = ResourceManager.GetObject("pngtree-vector-star-icon-png-image_516104", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_vector_star_icon_png_image_5161041 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-vector-star-icon-png-image_5161041", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap th__1_ {
+            get {
+                object obj = ResourceManager.GetObject("th (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z6091776557375_ed4812a863a97e743dd01f685d4e1250 {
+            get {
+                object obj = ResourceManager.GetObject("z6091776557375_ed4812a863a97e743dd01f685d4e1250", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

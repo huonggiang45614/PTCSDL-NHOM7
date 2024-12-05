@@ -12,6 +12,10 @@ namespace WindowsFormsApp3
 {
     public partial class dangnhap : Form
     {
+
+        private string username = "admin";
+        private string password = "admin";
+
         public dangnhap()
         {
             InitializeComponent();
@@ -20,10 +24,21 @@ namespace WindowsFormsApp3
 
         private void btdangnhap_Click(object sender, EventArgs e)
         {
-            trangchu f=new trangchu();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            DataTable dt = Database.Query("select * from TAIKHOAN where TENTAIKHOAN=@TENTAIKHOAN", new Dictionary<string, object>()
+            {
+                {"TENTAIKHOAN", txttentaikhoan.Text}
+            });
+            if(txttentaikhoan.Text.Equals(username) && txtmatkhau.Text.Equals(password))
+            {
+                trangchu f=new trangchu();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai mật khẩu hoặc tài khoản!");
+            }
         }
 
         private void btthoat_Click(object sender, EventArgs e)

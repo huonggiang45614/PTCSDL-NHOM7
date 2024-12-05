@@ -22,14 +22,12 @@ namespace WindowsFormsApp3
         {
             dtgMathang.DataSource = Database.Query("SELECT * FROM MATHANG");
 
-            cbbncc.DataSource = Database.Query("select IDNHACUNGCAP from NHACUNGCAP");
+            cbbncc.DataSource = Database.Query("select * from NHACUNGCAP");
             cbbncc.ValueMember = "IDNHACUNGCAP";
-            cbbloai.DataSource = Database.Query("select IDLOAIHANG from LOAIHANG");
+            cbbncc.DisplayMember = "TENNHACUNGCAP";
+            cbbloai.DataSource = Database.Query("select * from LOAIHANG");
             cbbloai.ValueMember = "IDLOAIHANG";
-        }
-        private void Form5_Load(object sender, EventArgs e)
-        {
-
+            cbbloai.DisplayMember = "TENLOAIHANG";
         }
 
         private void btthem_Click(object sender, EventArgs e)
@@ -175,8 +173,8 @@ namespace WindowsFormsApp3
             txtten.Text = dtgMathang.Rows[e.RowIndex].Cells["TENMATHANG"].Value.ToString();
             txtsl.Text = dtgMathang.Rows[e.RowIndex].Cells["SOLUONGTON"].Value.ToString();
             txtgia.Text = dtgMathang.Rows[e.RowIndex].Cells["GIA"].Value.ToString();
-            cbbloai.Text = dtgMathang.Rows[e.RowIndex].Cells["IDLOAIHANG"].Value.ToString();
-            cbbncc.Text = dtgMathang.Rows[e.RowIndex].Cells["IDNHACUNGCAP"].Value.ToString();
+            cbbloai.SelectedText = dtgMathang.Rows[e.RowIndex].Cells["TENLOAIHANG"].Value.ToString();
+            cbbncc.SelectedText = dtgMathang.Rows[e.RowIndex].Cells["TENNHACUNGCAP"].Value.ToString();
         }
     }
     }

@@ -14,7 +14,7 @@ namespace WindowsFormsApp3
     {
         SqlConnection connection;
         SqlCommand command;
-        string str = "Data Source=LAPTOP-L56TLFGS;Initial Catalog=QLCHQA;User ID=sa;Password=123123123";
+        string str = "Data Source=HG22102004\\SQLEXPRESS01;Initial Catalog=QLCHQA;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         void loaddata()
@@ -151,11 +151,7 @@ namespace WindowsFormsApp3
             if (!ckform()) return;
             try
             {
-                command = connection.CreateCommand();
-                command.CommandText = "DELETE FROM CHITIETDATHANG WHERE IDMATHANG IN (SELECT IDMATHANG FROM MATHANG WHERE IDNHACUNGCAP = '" + tbidnhacungcap.Text + "')";
-                command.ExecuteNonQuery();
-                command.CommandText = "DELETE FROM MATHANG WHERE IDNHACUNGCAP = '" + tbidnhacungcap.Text + "'";
-                command.ExecuteNonQuery();
+                
                 command.CommandText = "DELETE FROM NHACUNGCAP WHERE IDNHACUNGCAP='" + tbidnhacungcap.Text + "'";
                 command.ExecuteNonQuery();
                 loaddata();
@@ -163,7 +159,7 @@ namespace WindowsFormsApp3
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Có lỗi khi xóa dữ liệu." + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Có lỗi khi xóa dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -201,6 +197,11 @@ namespace WindowsFormsApp3
             tbtennhacungcap.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
             tbdiachi.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
             tbsdt.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+        }
+
+        private void nhacungcap_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -18,21 +18,26 @@ namespace WindowsFormsApp3
         {
             InitializeComponent();
         }
-
+        public void HidePictureBox()
+        {
+            pictureBox1.Visible = false;  // Giả sử pictureBox1 là tên PictureBox của bạn
+        }
         private void clearForm()
         {
-            if(current != null)
+            pictureBox1.Visible = false;
+            if (current != null)
             {
                 panel2.Controls.Remove(current);
                 current.Close();
                 current = null;
             }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             clearForm();
-            ncc f = new ncc () { TopLevel = false, TopMost = true };
+            nhacungcap f = new nhacungcap () { TopLevel = false, TopMost = true };
             f.FormBorderStyle = FormBorderStyle.None;
             panel2.Controls.Add(f);
             current = f;
@@ -70,6 +75,31 @@ namespace WindowsFormsApp3
         }
 
         private void trangchu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            clearForm();
+            hoadon f = new hoadon() { TopLevel = false, TopMost = true };
+            f.FormBorderStyle = FormBorderStyle.None;
+            panel2.Controls.Add(f);
+            current = f;
+            f.Show();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
         {
 
         }

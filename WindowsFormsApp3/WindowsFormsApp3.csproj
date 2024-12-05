@@ -154,12 +154,35 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\z6091776557375_ed4812a863a97e743dd01f685d4e1250.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="image\Bo-anh-icon-ngoi-nha-vector-pho-bien.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="image\pngtree-vector-star-icon-png-image_516104.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-black-shopping-cart-icon-png-image_5108611.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-black-shopping-cart-icon-png-image_51086111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-vector-star-icon-png-image_516104.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-exclamation-mark-question-mark-computer-icons-symbol-attention-miscellaneous-city.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\th %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-settings-icon-png-image_4491632.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-1258065863-170667a.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

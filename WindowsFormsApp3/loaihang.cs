@@ -58,7 +58,7 @@ namespace WindowsFormsApp3
             {
                 Database.Execute(sql, parameters);
                 loaddgvLoaiHang();
-                MessageBox.Show("Thêm thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -73,15 +73,15 @@ namespace WindowsFormsApp3
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string sql = "DELETE LOAIHANG WHERE IDLOAIHANG = @IDLOAIHANG";
+            string sql = "EXEC XoaLoaiHang @IDLOAIHANG = @ID";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             string IDLOAIHANG = tbxID.Text;
-            parameters.Add("@IDLOAIHANG", IDLOAIHANG);
+            parameters.Add("@ID", IDLOAIHANG);
             try
             {
                 Database.Execute(sql, parameters);
                 loaddgvLoaiHang();
-                MessageBox.Show("Thêm thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Xóa thành công!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -101,7 +101,7 @@ namespace WindowsFormsApp3
             Dictionary<string, object> parameter = new Dictionary<string, object>();
             String TENLOAIHANG = tbxTimKiem.Text;
             parameter.Add("@TENLOAIHANG", TENLOAIHANG);
-            dgvLoaiHang.DataSource = Database.Query("Select * from NHANVIEN where TENNHANVIEN like '%'+@TENLOAIHANG+'%'", parameter);
+            dgvLoaiHang.DataSource = Database.Query("Select * from LOAIHANG where TENLOAIHANG like '%'+@TENLOAIHANG+'%'", parameter);
         }
         private bool Check()
         {

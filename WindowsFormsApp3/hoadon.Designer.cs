@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tbx_TOTAL = new System.Windows.Forms.TextBox();
+            this.btn_CONFIRM = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.nud_QUANTITY = new System.Windows.Forms.NumericUpDown();
             this.btn_ADD = new System.Windows.Forms.Button();
             this.tbx_PRICE = new System.Windows.Forms.TextBox();
@@ -55,10 +59,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.tbx_TOTAL = new System.Windows.Forms.TextBox();
-            this.btn_CONFIRM = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_QUANTITY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -88,6 +88,47 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin hóa đơn";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(597, 334);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(395, 49);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Huỷ hoá đơn";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // tbx_TOTAL
+            // 
+            this.tbx_TOTAL.Enabled = false;
+            this.tbx_TOTAL.Location = new System.Drawing.Point(510, 295);
+            this.tbx_TOTAL.Margin = new System.Windows.Forms.Padding(4);
+            this.tbx_TOTAL.Name = "tbx_TOTAL";
+            this.tbx_TOTAL.Size = new System.Drawing.Size(175, 22);
+            this.tbx_TOTAL.TabIndex = 10;
+            // 
+            // btn_CONFIRM
+            // 
+            this.btn_CONFIRM.Location = new System.Drawing.Point(6, 334);
+            this.btn_CONFIRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_CONFIRM.Name = "btn_CONFIRM";
+            this.btn_CONFIRM.Size = new System.Drawing.Size(395, 49);
+            this.btn_CONFIRM.TabIndex = 9;
+            this.btn_CONFIRM.Text = "In hóa đơn";
+            this.btn_CONFIRM.UseVisualStyleBackColor = true;
+            this.btn_CONFIRM.Click += new System.EventHandler(this.btn_CONFIRM_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(320, 295);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(103, 20);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Thành tiền:";
             // 
             // nud_QUANTITY
             // 
@@ -208,7 +249,7 @@
             this.comboBox1.Size = new System.Drawing.Size(220, 24);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-         
+            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
             // groupBox1
             // 
@@ -248,7 +289,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(268, 24);
             this.comboBox2.TabIndex = 7;
-           
             // 
             // tbx_CUSTOMER_NUMBER
             // 
@@ -322,47 +362,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(597, 334);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(395, 49);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Huỷ hoá đơn";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // tbx_TOTAL
-            // 
-            this.tbx_TOTAL.Enabled = false;
-            this.tbx_TOTAL.Location = new System.Drawing.Point(510, 295);
-            this.tbx_TOTAL.Margin = new System.Windows.Forms.Padding(4);
-            this.tbx_TOTAL.Name = "tbx_TOTAL";
-            this.tbx_TOTAL.Size = new System.Drawing.Size(175, 22);
-            this.tbx_TOTAL.TabIndex = 10;
-            // 
-            // btn_CONFIRM
-            // 
-            this.btn_CONFIRM.Location = new System.Drawing.Point(6, 334);
-            this.btn_CONFIRM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_CONFIRM.Name = "btn_CONFIRM";
-            this.btn_CONFIRM.Size = new System.Drawing.Size(395, 49);
-            this.btn_CONFIRM.TabIndex = 9;
-            this.btn_CONFIRM.Text = "In hóa đơn";
-            this.btn_CONFIRM.UseVisualStyleBackColor = true;
-            this.btn_CONFIRM.Click += new System.EventHandler(this.btn_CONFIRM_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(320, 295);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(103, 20);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Thành tiền:";
             // 
             // hoadon
             // 

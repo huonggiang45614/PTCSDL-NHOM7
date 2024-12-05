@@ -46,16 +46,16 @@
             this.btsua = new System.Windows.Forms.Button();
             this.btxoa = new System.Windows.Forms.Button();
             this.dtgMathang = new System.Windows.Forms.DataGridView();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txttimkiem = new System.Windows.Forms.TextBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.IDMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDLOAIHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IDNHACUNGCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOLUONGTON = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txttimkiem = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMathang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -227,36 +227,6 @@
             this.dtgMathang.TabIndex = 10;
             this.dtgMathang.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgMathang_RowEnter);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(508, 307);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "Tìm kiếm ";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(75, 307);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(142, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Nhập tên hàng cần tìm ";
-            // 
-            // txttimkiem
-            // 
-            this.txttimkiem.Location = new System.Drawing.Point(258, 304);
-            this.txttimkiem.Name = "txttimkiem";
-            this.txttimkiem.Size = new System.Drawing.Size(226, 22);
-            this.txttimkiem.TabIndex = 12;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // IDMATHANG
             // 
             this.IDMATHANG.DataPropertyName = "IDMATHANG";
@@ -305,6 +275,36 @@
             this.SOLUONGTON.Name = "SOLUONGTON";
             this.SOLUONGTON.Width = 125;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(525, 303);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(97, 23);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "Tìm kiếm ";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(75, 307);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(142, 16);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Nhập tên hàng cần tìm ";
+            // 
+            // txttimkiem
+            // 
+            this.txttimkiem.Location = new System.Drawing.Point(258, 304);
+            this.txttimkiem.Name = "txttimkiem";
+            this.txttimkiem.Size = new System.Drawing.Size(226, 22);
+            this.txttimkiem.TabIndex = 12;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // math
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -320,7 +320,6 @@
             this.Controls.Add(this.panel1);
             this.Name = "math";
             this.Text = "Form5";
-            this.Load += new System.EventHandler(this.Form5_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgMathang)).EndInit();
